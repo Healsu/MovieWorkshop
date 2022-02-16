@@ -3,6 +3,7 @@ package com.example.movieworkshop.controller;
 import com.example.movieworkshop.models.Movie;
 import com.example.movieworkshop.repositories.MovieRepository;
 import com.example.movieworkshop.services.MovieService;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controls {
     MovieRepository Repository = new MovieRepository();
     MovieService Service = new MovieService();
+
 
     @GetMapping("/")
     public String test(){
@@ -21,8 +23,8 @@ public class Controls {
    @GetMapping("/getFirst")
     public String showMovies(){
 
+       Movie firstMovie = Service.getFirstMovie(Repository.convertFile());
 
-
-    return Service.getFirstMovie(Repository.convertFile()).toString();
+    return firstMovie.toString();
 }
 }
