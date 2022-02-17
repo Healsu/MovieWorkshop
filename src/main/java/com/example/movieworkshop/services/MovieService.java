@@ -24,12 +24,18 @@ public class MovieService {
     }
 
 
-    public Movie getSortedPopularity(ArrayList<Movie> movieList){
+    public ArrayList<Movie> getSortedPopularity(ArrayList<Movie> movieList){
+        Random rand = new Random();
 
-        for (int i = 0; i < movieList.size(); i++) {
-            movieList.get(i).getPopularity();
+        ArrayList<Movie> popularityList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            int randomNumber = rand.nextInt(movieList.size());
+            popularityList.add(movieList.get(randomNumber));
+            movieList.remove(randomNumber);
         }
-        return null;
+        return popularityList;
+
+
     }
 
     //Show how many movies got an award from the list

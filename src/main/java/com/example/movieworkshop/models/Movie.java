@@ -83,6 +83,6 @@ public class Movie {
                 ", subject='" + subject + '\'' +
                 ", popularity=" + popularity +
                 ", wonAnAward=" + wonAnAward +
-                '}';
+                '}'+"<br>";
     }
 }

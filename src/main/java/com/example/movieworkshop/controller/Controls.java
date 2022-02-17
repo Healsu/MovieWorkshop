@@ -6,6 +6,8 @@ import com.example.movieworkshop.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 @RestController
 public class Controls {
     MovieRepository Repository = new MovieRepository();
@@ -38,8 +40,8 @@ public class Controls {
     @GetMapping("/getTenSortByPopularity")
     public String showTenPopularity(){
 
-        Movie firstMovie = Service.getSortedPopularity(Repository.convertFile());
-        return null;
+        ArrayList<Movie> popularityMovie = Service.getSortedPopularity(Repository.convertFile());
+        return "<h1 style="+">Ten random movies sorted by popularity"+"</h1>"+popularityMovie.toString();
     }
 
     @GetMapping("/howManyWonAwards")
