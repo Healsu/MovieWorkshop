@@ -3,6 +3,7 @@ package com.example.movieworkshop.services;
 import com.example.movieworkshop.models.Movie;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
@@ -26,14 +27,33 @@ public class MovieService {
 
     public ArrayList<Movie> getSortedPopularity(ArrayList<Movie> movieList){
         Random rand = new Random();
-
         ArrayList<Movie> popularityList = new ArrayList<>();
+        ArrayList<Movie> popularitySorted = new ArrayList<>();
+
+        //Adds 10 random movies to an arraylist
         for (int i = 0; i < 10; i++) {
             int randomNumber = rand.nextInt(movieList.size());
             popularityList.add(movieList.get(randomNumber));
             movieList.remove(randomNumber);
         }
-        return popularityList;
+
+        //Sorts the arraylist by popularity
+        Movie highest = null;
+        for (int i = 0; i < popularityList.size(); i++) {
+
+            for (int j = 0; j < popularityList.size(); j++) {
+
+                if (popularityList.get(i).getPopularity() > popularityList.get(j).getPopularity()){
+                }
+                else{
+                    highest = popularityList.get(j);
+                }
+            }
+            popularitySorted.add(highest);
+        }
+        Collections.sort(popularityList);
+
+        return null;
 
 
     }
@@ -60,4 +80,5 @@ public class MovieService {
         }
         return awardList;
     }
+
 }
