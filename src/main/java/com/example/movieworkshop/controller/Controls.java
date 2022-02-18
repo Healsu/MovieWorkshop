@@ -41,7 +41,7 @@ public class Controls {
     public String showTenPopularity(){
 
         ArrayList<Movie> popularityMovie = Service.getSortedPopularity(Repository.convertFile());
-        return "<h1 style="+">Ten random movies sorted by popularity"+"</h1>"+popularityMovie.toString();
+        return "<h1 style=>"+"Ten random movies sorted by popularity"+"</h1>"+popularityMovie.toString();
     }
 
     @GetMapping("/howManyWonAwards")

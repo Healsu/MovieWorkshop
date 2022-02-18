@@ -31,7 +31,7 @@ public class MovieService {
     public ArrayList<Movie> getSortedPopularity(ArrayList<Movie> movieList) {
         Random rand = new Random();
         ArrayList<Movie> popularityList = new ArrayList<>();
-        ArrayList<Movie> popularitySorted = new ArrayList<>();
+
 
         //Adds 10 random movies to an arraylist
         for (int i = 0; i < 10; i++) {
@@ -39,37 +39,13 @@ public class MovieService {
             popularityList.add(movieList.get(randomNumber));
             movieList.remove(randomNumber);
         }
-        //Sorts the arraylist by popularity
-        //Movie highest = null;
-        /*
-        for (int i = 0; i < popularityList.size(); i++) {
-            for (int j = 0; j < popularityList.size(); j++) {
-                if (popularityList.get(i).getPopularity() > popularityList.get(j).getPopularity()) {
-                } else {
-                    highest = popularityList.get(j);
-                }
-            }
-            popularitySorted.add(highest);
-        }
 
-         */
+
+
         Collections.sort(popularityList);
 
         return popularityList;
     }
-
-        public String getTenSortByPopularity () {
-            ArrayList<Movie> popularityList = new ArrayList<Movie>();
-            for (int i = 0; i < 10; i++) {
-                Movie currentMovie = getRandomMovie(allMovies);
-                popularityList.add(currentMovie);
-            }
-            Collections.sort(popularityList);
-
-            return null;
-
-
-        }
 
         //Show how many movies got an award from the list
         public int gotAward (ArrayList < Movie > movieList) {
