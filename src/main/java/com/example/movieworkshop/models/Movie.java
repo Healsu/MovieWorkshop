@@ -2,7 +2,7 @@ package com.example.movieworkshop.models;
 
 import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Comparable<Movie>{
     ArrayList<Movie> MovieList = new ArrayList();
     private int movieYear;
     private int movieLenght;
@@ -73,6 +73,8 @@ public class Movie {
         this.wonAnAward = wonAnAward;
     }
 
+
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -84,5 +86,17 @@ public class Movie {
                 ", popularity=" + popularity +
                 ", wonAnAward=" + wonAnAward +
                 '}'+"<br>";
+    }
+
+    @Override
+    public int compareTo(Movie o) {
+        if (popularity == o.getPopularity()){
+            return 0;
+        }else if (popularity < o.getPopularity()){
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 }
